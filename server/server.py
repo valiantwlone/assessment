@@ -50,12 +50,12 @@ def delete_contact(id):
         db.delete_one({"_id": ObjectId(id)})
         return jsonify({"message": "deleted"})
     elif request.method == "PUT":
-        db.update_one({"_id": str(ObjectId(id))}, {"$set": {
+        db.update_one({"_id": ObjectId(id)}, {"$set": {
             "name": request.json["name"],
             "phone": request.json["phone"]
         }})
         # return jsonify({"message": request.json["name"]+"has been updated"})
-        return jsonify({"message": "has been updated"})
+        return jsonify({"message": "Contact updated"})
 
         # @app.route("/members")
         # def members():
